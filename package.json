@@ -7,11 +7,11 @@
   },
   "private": true,
   "lint-staged": {
-    "*.{ts, js}": [
+    "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{json, md}": [
+    "*.{json,md,yml,yaml,html}": [
       "prettier --write"
     ]
   },
