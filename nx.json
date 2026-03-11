@@ -14,6 +14,10 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
   "nxCloudId": "69b0f7fd3decc6da679a6fae",
   "plugins": [
     {
@@ -38,7 +42,14 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/blog-e2e/**/*"]
+      "exclude": [
+        "apps/blog-e2e/**/*",
+        "gateway-e2e/**/*",
+        "gateway-e2e/**/*",
+        "gateway-e2e/**/*",
+        "apps-e2e/**/*",
+        "apps/gateway-e2e/**/*"
+      ]
     }
   ]
 }
