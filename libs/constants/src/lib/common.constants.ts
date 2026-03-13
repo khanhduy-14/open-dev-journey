@@ -1,1 +1,4 @@
-export const PORT_GATEWAY = 3000;
+export enum RequestMetaDataEnum {
+  PROCESS_ID = 'processId',
+  START_TIME = 'startTime',
+}
