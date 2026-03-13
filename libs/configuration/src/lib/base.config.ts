@@ -20,7 +20,7 @@ export class BaseConfiguration {
   constructor() {
     this.NODE_ENV = process.env['NODE_ENV'] || 'development';
     this.IS_DEV = this.NODE_ENV === 'development';
-    this.GLOBAL_PREFIX = process.env['GLOBAL_PREFIX'];
+    this.GLOBAL_PREFIX = process.env['GLOBAL_PREFIX'] ?? '';
   }
 
   validate() {
