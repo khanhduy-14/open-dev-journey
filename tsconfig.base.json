@@ -17,7 +17,8 @@
     "paths": {
       "@open-dev-journey/contants": ["libs/contants/src/index.ts"],
       "@common/constants/*": ["libs/constants/src/lib/*"],
-    },
+      "@common/configuration/*": ["libs/configuration/src/lib/*"]
+    }
   },
-  "exclude": ["node_modules", "tmp"],
+  "exclude": ["node_modules", "tmp"]
 }
