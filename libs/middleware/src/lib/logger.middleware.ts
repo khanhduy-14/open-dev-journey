@@ -26,7 +26,6 @@ export class LoggerMiddleware implements NestMiddleware {
       );
       return originalSend(body);
     };
-    console.log('Request');
     next();
   }
 }

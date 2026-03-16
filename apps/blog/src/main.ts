@@ -6,17 +6,21 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
-import { PORT_GATEWAY } from '@common/constants/common.constants';
+import { MicroserviceOptions } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = PORT_GATEWAY;
-  console.log(port);
-  await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
-  );
+  const host = AppModule.CONFIGURATION.TCP_SERV.TCP_BLOG_SERVICE.options.host;
+  const port = AppModule.CONFIGURATION.TCP_SERV.TCP_BLOG_SERVICE.options.port;
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: AppModule.CONFIGURATION.TCP_SERV.TCP_BLOG_SERVICE.transport,
+    options: {
+      host,
+      port,
+    },
+  });
+
+  await app.startAllMicroservices();
+  Logger.log(`🚀 Blog Service is running on: ${host}:${port}`);
 }
 
 bootstrap();

@@ -31,7 +31,6 @@ export class ExceptionInterceptor implements NestInterceptor {
 
     const processId = request[RequestMetaDataEnum.PROCESS_ID];
     const startTime = request[RequestMetaDataEnum.START_TIME];
-    console.log(processId, startTime);
     return next.handle().pipe(
       map((data: ResponseDto<unknown>) => {
         const duration = Date.now() - startTime;

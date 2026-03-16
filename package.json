@@ -6,7 +6,7 @@
     "prepare": "husky",
     "nx:reset": "nx reset",
     "nx:run-many": "nx run-many",
-    "dev": "pnpm nx:reset && pnpm nx:run-many -t serve",
+    "dev": "pnpm nx:reset && pnpm nx:run-many -t serve --tui",
     "dev-gateway": "pnpm nx reset && pnpm nx serve gateway"
   },
   "private": true,
@@ -23,6 +23,7 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.0",
+    "@nestjs/microservices": "^11.1.16",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/swagger": "^11.2.6",
     "axios": "^1.6.0",
