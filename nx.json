@@ -48,7 +48,8 @@
         "gateway-e2e/**/*",
         "gateway-e2e/**/*",
         "apps-e2e/**/*",
-        "apps/gateway-e2e/**/*"
+        "apps/gateway-e2e/**/*",
+        "apps/comment-e2e/**/*"
       ]
     }
   ],
