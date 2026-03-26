@@ -7,12 +7,15 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { IsNotEmptyObject } from 'class-validator';
 export enum TCP_SERVICES {
   BLOG_SERVICE = 'TCP_BLOG_SERVICE',
+  COMMENT_SERVICE = 'TCP_COMMENT_SERVICE',
 }
 
 export class TcpConfiguration {
   @IsNotEmptyObject()
   TCP_BLOG_SERVICE: TcpClientOptions;
 
+  @IsNotEmptyObject()
+  TCP_COMMENT_SERVICE: TcpClientOptions;
   constructor() {
     Object.entries(TCP_SERVICES).forEach(([key, serviceName]) => {
       const host = process.env[`${key}_HOST`] || 'localhost';

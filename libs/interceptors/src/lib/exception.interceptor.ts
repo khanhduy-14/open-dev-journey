@@ -11,7 +11,7 @@ import {
 import { catchError, map, Observable } from 'rxjs';
 import { Request } from 'express';
 import { RequestMetaDataEnum } from '@common/constants/common.constants';
-import { ResponseDto } from '@common/interfaces/response.interface';
+import { ResponseDto } from '@common/interfaces/gateway/response.interface';
 import { STATUS_CODES } from 'http';
 
 @Injectable()
