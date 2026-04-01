@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
-import { MongoProvider } from '@common/configuration/mongo.config';
-import { CONFIGURATION, IConfiguration } from '../configuration';
 import { ConfigModule } from '@nestjs/config';
-import { CommentModule } from './modules/comment/comment.module';
+import { CONFIGURATION, IConfiguration } from '../configuration';
+import { PostModule } from './modules/post/post.module';
 
 @Module({
   imports: [
@@ -10,8 +9,7 @@ import { CommentModule } from './modules/comment/comment.module';
       isGlobal: true,
       load: [() => CONFIGURATION],
     }),
-    MongoProvider,
-    CommentModule,
+    PostModule,
   ],
   controllers: [],
   providers: [],

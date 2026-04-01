@@ -43,6 +43,7 @@ export class ExceptionInterceptor implements NestInterceptor {
         const duration = Date.now() - startTime;
         const message =
           error?.response?.message ||
+          error?.message ||
           error ||
           STATUS_CODES[HttpStatus.INTERNAL_SERVER_ERROR];
         const code =

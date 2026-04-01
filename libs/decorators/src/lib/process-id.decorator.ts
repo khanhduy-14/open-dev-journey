@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { RequestMetaDataEnum } from '@common/constants/common.constants';
-import { getProcessId } from '@common/utils.string.utils';
+import { getProcessId } from '@common/utils/string.utils';
 
 export const ProcessId = createParamDecorator(
   (data: unknown, ctx: ExecutionContext) => {

@@ -7,6 +7,7 @@ import { LoggerMiddleware } from '@common/middleware/logger.middleware';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ExceptionInterceptor } from '@common/interceptors/exception.interceptor';
 import { CommentModule } from './module/comment/comment.module';
+import { PostModule } from './module/post/post.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CommentModule } from './module/comment/comment.module';
       load: [() => CONFIGURATION],
     }),
     CommentModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [

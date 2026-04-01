@@ -35,11 +35,11 @@ export type ResponseType<T> = Response<T>;
 export interface TcpClient {
   send<TResult = any, TInput = any>(
     pattern: any,
-    data: RequestType<TInput>,
+    data: TInput,
   ): Observable<ResponseType<TResult>>;
 
   emit<TResult = any, TInput = any>(
     pattern: any,
-    data: RequestType<TInput>,
+    data: TInput,
   ): Observable<ResponseType<TResult>>;
 }

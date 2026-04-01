@@ -6,9 +6,12 @@ import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { TCP_MESSAGE } from '@common/constants/tcp-message.constant';
 import {
   CreateCommentRequestDto,
-  CreateCommentResponseDto,
+  CommentResponseDto,
 } from '@common/interfaces/gateway/comment';
-import { CreateCommentTcpResponse } from '@common/interfaces/tcp/comment';
+import {
+  CommentResponseTcp,
+  CreateCommentRequestTcp,
+} from '@common/interfaces/tcp/comment';
 import { ResponseDto } from '@common/interfaces/gateway/response.interface';
 import { map } from 'rxjs';
 
@@ -19,11 +22,11 @@ export class CommentController {
     @Inject(TCP_SERVICES.COMMENT_SERVICE) readonly commentClient: TcpClient,
   ) {}
   @Post()
-  @ApiOkResponse({ type: ResponseDto<CreateCommentResponseDto> })
+  @ApiOkResponse({ type: ResponseDto<CommentResponseDto> })
   @ApiOperation({ summary: 'Create comment' })
   createComment(@Body() data: CreateCommentRequestDto, @ProcessId() processId) {
     return this.commentClient
-      .send<CreateCommentTcpResponse, CreateCommentRequestDto>(
+      .send<CommentResponseTcp, CreateCommentRequestTcp>(
         TCP_MESSAGE.COMMENT.CREATE,
         {
           data,
