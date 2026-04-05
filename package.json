@@ -9,7 +9,10 @@
     "dev": "pnpm nx:reset && pnpm nx:run-many -t serve --tui",
     "dev:gateway": "pnpm nx reset && pnpm nx serve gateway",
     "dev:comment": "pnpm nx reset && pnpm nx serve comment",
-    "dev:post": "pnpm nx reset && pnpm nx serve post"
+    "dev:post": "pnpm nx reset && pnpm nx serve post",
+    "seed:user-access": "nx seed user-access",
+    "provider:down": "docker compose -f docker-compose.provider.yaml down -v",
+    "provider:up": "docker compose -f docker-compose.provider.yaml up -d"
   },
   "private": true,
   "lint-staged": {

@@ -38,6 +38,8 @@ export class TypeormConfiguration {
     this.TYPE = (data?.TYPE ??
       process.env['TYPEORM_TYPE'] ??
       'postgres') as DatabaseType;
+
+    console.log(this.DATABASE);
   }
 }
 
@@ -67,31 +69,28 @@ export const TypeOrmProvider = TypeOrmModule.forRootAsync({
       synchronize: true,
       autoLoadEntities: true,
     };
+
     return createDbConfig(dbType, baseConfig);
   },
-  // dataSourceFactory: async (options?: DataSourceOptions) => {
-  //   if (!options) throw new Error('DataSourceOptions are required');
-  //   const dataSource = new DataSource(options);
-  //   const dbType = options.type;
+  dataSourceFactory: async (options?: DataSourceOptions) => {
+    if (!options) throw new Error('DataSourceOptions are required');
+    const dataSource = new DataSource(options);
+    const dbType = options.type;
 
-  //   try {
-  //     Logger.log(`Connecting to Database ${dbType}`);
-  //     await dataSource.initialize();
+    try {
+      Logger.log(`Connecting to Database ${dbType}`);
+      await dataSource.initialize();
 
-  //     Logger.log(`Database ${dbType} connected`);
+      Logger.log(`Database ${dbType} connected`);
 
-  //     if (dataSource.isInitialized) {
-  //       Logger.log(`Database ${dbType} open`);
-  //     }
-  //   } catch (err) {
-  //     Logger.error(`Database ${dbType} connection failed`, err);
-  //     throw err;
-  //   }
-  //   console.log(
-  //     options.entities,
-  //     new DataSource(options).entityMetadatas.length,
-  //   );
+      if (dataSource.isInitialized) {
+        Logger.log(`Database ${dbType} open`);
+      }
+    } catch (err) {
+      Logger.error(`Database ${dbType} connection failed`, err);
+      throw err;
+    }
 
-  //   return dataSource;
-  // },
+    return dataSource;
+  },
 });

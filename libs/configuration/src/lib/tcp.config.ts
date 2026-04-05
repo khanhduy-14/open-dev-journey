@@ -6,12 +6,16 @@ import {
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { IsNotEmptyObject } from 'class-validator';
 export enum TCP_SERVICES {
+  USER_ACCESS_SERVICE = 'TCP_USER_ACCESS_SERVICE',
   BLOG_SERVICE = 'TCP_BLOG_SERVICE',
   COMMENT_SERVICE = 'TCP_COMMENT_SERVICE',
   POST_SERVICE = 'TCP_POST_SERVICE',
 }
 
 export class TcpConfiguration {
+  @IsNotEmptyObject()
+  TCP_USER_ACCESS_SERVICE: TcpClientOptions;
+
   @IsNotEmptyObject()
   TCP_BLOG_SERVICE: TcpClientOptions;
 

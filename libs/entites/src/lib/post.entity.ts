@@ -1,9 +1,9 @@
 import { Column } from 'typeorm';
-import { BaseEntity } from './base.entity';
+import { UuidEntity } from './base.entity';
 import { Entity } from 'typeorm';
 
 @Entity()
-export class Post extends BaseEntity {
+export class Post extends UuidEntity {
   @Column({ type: 'varchar', length: 255 })
   title: string;
 

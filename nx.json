@@ -50,7 +50,8 @@
         "apps-e2e/**/*",
         "apps/gateway-e2e/**/*",
         "apps/comment-e2e/**/*",
-        "apps/post-e2e/**/*"
+        "apps/post-e2e/**/*",
+        "apps/user-access-e2e/**/*"
       ]
     }
   ],

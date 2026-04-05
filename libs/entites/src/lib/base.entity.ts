@@ -2,9 +2,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
   @Column({ type: 'boolean', default: false })
   isDeleted: boolean;
 
@@ -25,4 +22,16 @@ export class BaseEntity {
     nullable: true,
   })
   deletedAt: Date;
+}
+
+@Entity()
+export class UuidEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+}
+
+@Entity()
+export class IntEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 }

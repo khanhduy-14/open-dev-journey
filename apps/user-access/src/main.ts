@@ -10,10 +10,13 @@ import { MicroserviceOptions } from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const host = AppModule.CONFIGURATION.TCP_SERV.TCP_POST_SERVICE.options.host;
-  const port = AppModule.CONFIGURATION.TCP_SERV.TCP_POST_SERVICE.options.port;
+  const host =
+    AppModule.CONFIGURATION.TCP_SERV.TCP_USER_ACCESS_SERVICE.options.host;
+  const port =
+    AppModule.CONFIGURATION.TCP_SERV.TCP_USER_ACCESS_SERVICE.options.port;
   app.connectMicroservice<MicroserviceOptions>({
-    transport: AppModule.CONFIGURATION.TCP_SERV.TCP_POST_SERVICE.transport,
+    transport:
+      AppModule.CONFIGURATION.TCP_SERV.TCP_USER_ACCESS_SERVICE.transport,
     options: {
       host,
       port,
@@ -21,7 +24,7 @@ async function bootstrap() {
   });
 
   await app.startAllMicroservices();
-  Logger.log(`🚀 Post Service is running on: ${host}:${port}`);
+  Logger.log(`🚀 User Access Service is running on: ${host}:${port}`);
 }
 
 bootstrap();
